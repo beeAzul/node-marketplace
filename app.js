@@ -7,14 +7,14 @@ const errorController = require('./controllers/error');
 
 const app = express();
 
-app.set('view engine', 'ejs');
-app.set('views', 'views');
+app.set('view engine', 'ejs'); // Tells to Express the template engine used, here ejs
+app.set('views', 'views'); // Tells to Express where to find the located folder for the views templates
 
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'))); // This middleware tells to Express where to find statics files
 
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
